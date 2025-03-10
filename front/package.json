@@ -1,0 +1,16 @@
+{
+  "name": "arduino-sonar",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Ethan Mahlstedt <ethan.mahlstedt@hotmail.com>",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {},
+  "devDependencies": {
+    "electron": "^35.0.0"
+  },
+  "dependencies": {
+    "serialport": "^13.0.0"
+  }
+}
