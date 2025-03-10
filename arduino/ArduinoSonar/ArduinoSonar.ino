@@ -148,12 +148,10 @@ void loop(){
             distance = pulseDistance * 100;
         }
 
-        // TODO: FORMAT STRINGS TO FIXED NUMBER SIZE
-
-        String strDistance = String(distance);
+        String strDistance = fixString5C(distance);
         String distanceCmd = "G";
         distanceCmd.concat(strDistance);
-        String position = String(servoPosition);
+        String position = fixString3C(servoPosition);
         String positionCmd = "D";
         positionCmd.concat(position);
         String command;
@@ -198,4 +196,42 @@ float getDistance(){
     float distance = time/29/2;
 
     return distance;
+}
+
+String fixString3C(uint8_t rawNumber){
+    String number = String(rawNumber);
+    String fixedString = "";
+    if(number >= 0 && number < 10){
+        fixedString.concat("00");
+        fixedString.concat(number)
+    }else if(number >= 10 && number < 100){
+        fixedString.concat("0");
+        fixedString.concat(number);
+    }else if(number >= 100){
+        fixedString.concat(number);
+    }
+
+    return fixedString;
+}
+
+String fixString5C(uint16_t rawNumber){
+    String number = String(rawNumber);
+    String fixedString = "";
+    if(number >= 0 && number < 10){
+        fixedString.concat("0000");
+        fixedString.concat(number)
+    }else if(number >= 10 && number < 100){
+        fixedString.concat("000");
+        fixedString.concat(number);
+    }else if(number >= 100 && number < 1000){
+        fixedString.concat("00");
+        fixedString.concat(number);
+    }else if(number >= 1000 && number < 10000){
+        fixedString.concat("0");
+        fixedString.concat(number);
+    }else if(number >= 10000){
+        fixedString.concat(number);
+    }
+
+    return fixedString;
 }
