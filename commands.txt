@@ -1,0 +1,15 @@
+PC => Arduino
+
+Command | Name                   | Syntax | Argument Info
+S       | Start Position         | SXXX   | XXX: uint8_t, Trailing 0's (must use three spaces)
+E       | End Position           | EXXX   | XXX: uint8_t, Trailing 0's (must use three spaces)
+R       | Delay Rate             | RXXXXX | XXXXX: uint16_t, Trailing 0's (must use five spaces)
+I       | Servo Interval         | IXXX   | XXX: uint8_t, Trailing 0's (must use three spaces)
+A       | Stop                   | A      | none 
+
+Arduino => PC
+
+Command | Name                   | Syntax | Argument Info
+G       | Angle                  | GXXX   | XXX: uint8_t, Trailing 0's (must use three spaces)
+D       | Distance               | DXXXXX | XXXXX: float (positive), first XXX are integers (must use three spaces), the last two XXX are decimals (must use two spaces)
+L       | Limit                  | L      | none

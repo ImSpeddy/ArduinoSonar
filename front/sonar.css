@@ -5,6 +5,7 @@ body {
 #settings {
     display: flex;
     flex-direction: row;
+    gap: 5px;
 }
 
 textarea {
@@ -37,4 +38,23 @@ button:hover {
     border: 2px solid rgb(0, 255, 0);
     border-radius: 5px;
     font-weight: bold;
+}
+
+#debug {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 90vh;
+    gap: 5px;
+    
+}
+
+#sonar {
+    flex-grow: 1;
 }

@@ -7,14 +7,25 @@
     <link rel="stylesheet" href="sonar.css">
 </head>
 <body>
-    <div id="settings">
-        <button id="refreshPorts">Refresh Ports</button>
-        <select id="serialSelect">
-            <option value="none">Select Serial Port...</option>
-        </select>
-        <textarea id="baudRate" placeholder="Baud Rate...">9600</textarea>
-        <textarea id="range" placeholder="Ultrasonic Range...">255</textarea>
-        <button id="start">Start</button>
+    <div id="main">
+        <div id="settings">
+            <button id="refreshPorts">Refresh Ports</button>
+            <select id="serialSelect">
+                <option value="none">Select Serial Port</option>
+            </select>
+            <textarea id="baudRate" placeholder="Baud Rate (bps)"></textarea>
+            <textarea id="range" placeholder="Range (cm)"></textarea>
+            <textarea id="ustart" placeholder="Servo Start (°)"></textarea>
+            <textarea id="uend" placeholder="Servo End (°)"></textarea>
+            <textarea id="refreshRate" placeholder="Delay Rate (ms)"></textarea>
+            <textarea id="interval" placeholder="Interval (°)"></textarea>
+            <button id="start">Start</button>
+        </div>
+        <canvas id="sonar"></canvas>
+        <div id="debug">
+            <textarea id="dbg_command"></textarea>
+            <button id="dbg_emit">emit</button>
+        </div>
     </div>
     <script src="sonar.js"></script>
 </body>
