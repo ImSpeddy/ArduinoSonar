@@ -148,6 +148,8 @@ void loop(){
             distance = pulseDistance * 100;
         }
 
+        // TODO: FORMAT STRINGS TO FIXED NUMBER SIZE
+
         String strDistance = String(distance);
         String distanceCmd = "G";
         distanceCmd.concat(strDistance);

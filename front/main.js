@@ -6,6 +6,7 @@ const { ReadlineParser } = require('@serialport/parser-readline');
 let availablePorts = []
 
 async function getSerialPorts(){
+  availablePorts = []
   const serialPorts = await SerialPort.list()
   serialPorts.forEach((e)=>{
       availablePorts.push(e.path)
@@ -34,7 +35,7 @@ function createWindow(){
 }
 
 app.on("ready", ()=>{
-    createWindow()
+  createWindow()
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

@@ -20,5 +20,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 })
 
 function computeData(direction, distance){
-    
+    // TODO: COMPUTE DATA (maybe using sin, cos and tan?)
 }
+
+// TODO: RENDER DATA
+
+// TODO: HANDLE CONFIGURATION.
+
+// TODO: HANDLE RELATIVE POSITIONS
