@@ -5,9 +5,6 @@
 #define US_TRIG 4
 #define US_ECHO 5
 
-// TODO: Setup Servo
-// TODO: Setup Ultrasonic Sensor
-
 uint8_t ServoStart = 0;
 uint8_t ServoEnd = 0;
 
