@@ -16,7 +16,6 @@ textarea {
     border-radius: 5px;
     font-weight: bold;
     font-size: 18px;
-    text-justify: middle;
     height: 24px;
 }
 
@@ -57,4 +56,9 @@ button:hover {
 
 #sonar {
     flex-grow: 1;
+}
+
+label {
+    color: rgb(0, 255, 0);
+    font-family: 'Arial';
 }

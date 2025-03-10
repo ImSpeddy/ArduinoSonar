@@ -10,7 +10,8 @@
     <div id="main">
         <div id="settings">
             <button id="refreshPorts">Refresh Ports</button>
-            <select id="serialSelect">
+            <label for="serialSelect">Serial Port:</label>
+            <select name="serialSelect" id="serialSelect">
                 <option value="none">Select Serial Port</option>
             </select>
             <textarea id="baudRate" placeholder="Baud Rate (bps)"></textarea>
@@ -23,7 +24,7 @@
         </div>
         <canvas id="sonar"></canvas>
         <div id="debug">
-            <textarea id="dbg_command"></textarea>
+            <textarea id="dbg_command" placeholder="Debug Command..."></textarea>
             <button id="dbg_emit">emit</button>
         </div>
     </div>
