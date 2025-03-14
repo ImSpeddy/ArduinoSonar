@@ -1,6 +1,7 @@
-const { ipcRenderer } = require('electron/main')
+const { ipcRenderer } = require('electron/main');
+const { access } = require('original-fs');
 
-let direction = true
+let direction = false
 
 /*
     true  | clockwise
@@ -161,3 +162,28 @@ document.getElementById("dbg_emit").addEventListener('click', ()=>{
     handleCommand("G180D02500")
     handleCommand("G270D02500")
 })
+
+ipcRenderer.on("dataRecieved", (data)=>{
+    handleCommand(data)
+})
+
+document.getElementById("start").addEventListener("click", ()=>{
+    
+    ipcRenderer.emit("setCom", document.getElementById("serialSelect").value, document.getElementById("baudRate").value)
+
+    ipcRenderer.emit("emit", `S${fixStringLength(document.getElementById("ustart").value, 3)}E${fixStringLength(document.getElementById("uend").value), 3}RI`)
+
+})
+
+function fixStringLength(string, size){
+    const str = string.split('')
+
+    const zeroAmount = size-str
+    let addedZeroes
+
+    for (let index = 0; index < zeroAmount; index++) {
+        addedZeroes = addedZeroes + '0'    
+    }
+
+    return addedZeroes + str.join('')
+}

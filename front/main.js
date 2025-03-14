@@ -5,6 +5,11 @@ const { ReadlineParser } = require('@serialport/parser-readline');
 
 let availablePorts = []
 
+let serial;
+let serialSetup = false;
+let parser;
+let parserSetup = false;
+
 async function getSerialPorts(){
   availablePorts = []
   const serialPorts = await SerialPort.list()
@@ -54,5 +59,25 @@ ipcMain.handle("getPorts", async()=>{
   
   await getSerialPorts()
   return availablePorts
+
+})
+
+ipcMain.handle("emit", async(data)=>{
+
+  serial.write(data)
+
+})
+
+ipcMain.on("setCom", async(port, baudRate)=>{
+
+  serial = new SerialPort(port, {
+     baudRate: baudRate
+  })
+  parser = new ReadlineParser();
+  serial.pipe(parser)
+
+  parser.on("data", (data)=>{
+    mainWindow.webContents.send("dataRecieved", data)
+  })
 
 })
